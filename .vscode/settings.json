@@ -1,0 +1,19 @@
+{
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": true,
+    "editor.tabSize": 2,
+    "git.autofetch": true,
+    "vetur.validation.template": false,
+    "vetur.validation.style": false,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "editor.defaultFormatter": null,
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+}

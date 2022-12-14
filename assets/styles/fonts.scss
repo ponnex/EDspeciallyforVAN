@@ -1,0 +1,42 @@
+/*
+** Fonts
+*/
+$fonturl: '~assets/fonts/';
+
+/* Fallback for Browsers that doesn't support variable fonts */
+/* Fallback for Browsers that doesn't support variable fonts */
+@font-face {
+  font-family: 'Lora';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('#{$fonturl}/Lora-Regular.eot');
+  src: url('#{$fonturl}/Lora-Regular.ttf') format('truetype'),
+  url('#{$fonturl}/Lora-Regular.woff') format('woff'),
+  url('#{$fonturl}/Lora-Regular.woff2') format('woff2'),
+  url('#{$fonturl}/Lora-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('#{$fonturl}/Lora-SemiBold.eot');
+  src: url('#{$fonturl}/Lora-SemiBold.ttf') format('truetype'),
+  url('#{$fonturl}/Lora-SemiBold.woff') format('woff'),
+  url('#{$fonturl}/Lora-SemiBold.woff2') format('woff2'),
+  url('#{$fonturl}/Lora-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('#{$fonturl}/Lora-Bold.eot');
+  src: url('#{$fonturl}/Lora-Bold.ttf') format('truetype'),
+  url('#{$fonturl}/Lora-Bold.woff') format('woff'),
+  url('#{$fonturl}/Lora-Bold.woff2') format('woff2'),
+  url('#{$fonturl}/Lora-Bold.otf') format('opentype');
+}
