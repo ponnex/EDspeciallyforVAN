@@ -36,5 +36,22 @@ html {
 }
 
 .section {
-  height: 100vh;
+  height: var(--doc-height);
+
+  @media (max-width: 576px) {
+		height: 100%;
+	}
+}
+
+// Mobile Fixes
+:root {
+  --doc-height: 100%;
+}
+
+html,
+body {
+ padding: 0;
+ margin: 0;
+ height: 100vh; /* fallback for Js load */
+ height: var(--doc-height);
 }

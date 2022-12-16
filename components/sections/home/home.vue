@@ -1,10 +1,6 @@
 <template>
-	<section id="/" class="section">
-		<vue-slick-carousel
-			ref="banner-carousel"
-			class="banner-carousel"
-			v-bind="settings"
-		>
+	<section id="#" class="section">
+		<vue-slick-carousel ref="banner-carousel" class="banner-carousel" v-bind="settings">
 			<div v-for="(image, imageIdx) in bannerImages" :key="imageIdx">
 				<img class="carousel-image" :src="image.pathLong" draggable="false" />
 			</div>
@@ -37,6 +33,17 @@ export default class HomeComponent extends Vue {
 
 	created() {
 		this.importAll(require.context('@/static/images/banner/', false, /\.jpg$/));
+
+		let timeoutId: any = null;
+		const documentHeight = () => {
+			clearTimeout(timeoutId); // avoid execution of previous timeouts
+			timeoutId = setTimeout(() => {
+				const doc = document.documentElement;
+				doc.style.setProperty('--doc-height', `${window.innerHeight}px`);
+			}, 200);
+		};
+		window.addEventListener('resize', documentHeight);
+		documentHeight();
 	}
 
 	importAll(r: any) {
@@ -53,10 +60,14 @@ export default class HomeComponent extends Vue {
 <style lang="scss" scoped>
 .section {
 	position: relative;
+
+	@media (max-width: 576px) {
+		height: var(--doc-height);
+	}
 }
 
 .carousel-image {
-	height: 100vh;
+	height: var(--doc-height);
 	width: 100vw;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -91,7 +102,7 @@ export default class HomeComponent extends Vue {
 
 	&-carousel {
 		& /deep/ .slick-list {
-			height: 100vh !important;
+			height: var(--doc-height) !important;
 		}
 	}
 
@@ -100,6 +111,7 @@ export default class HomeComponent extends Vue {
 		margin: 24px;
 		gap: 40px;
 		width: auto;
+
 		&-header {
 			font-size: 84px;
 			line-height: 84px;
@@ -114,6 +126,7 @@ export default class HomeComponent extends Vue {
 	@media (max-width: 576px) {
 		margin: 16px;
 		gap: 32px;
+
 		&-header {
 			font-size: 64px;
 			line-height: 64px;

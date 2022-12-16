@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<home-component />
+		<about-us-component />
 	</div>
 </template>
 

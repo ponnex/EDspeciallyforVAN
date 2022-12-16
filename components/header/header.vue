@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-		<div class="header-container">
+		<div class="header-container" :class="[{ 'intersecting': isIntersecting }]">
 			<img class="icon" :src="require('@/assets/images/svg/ico-icon.svg')" />
 			<button class="icon-drawer" @click.stop="onToggleDrawer()">
 				<img :src="require('@/assets/images/svg/ico-menu.svg')" />
@@ -9,7 +9,7 @@
 				<button class="icon-drawer" @click.stop="onToggleDrawer()">
 					<img :src="require('@/assets/images/svg/ico-close.svg')" />
 				</button>
-				<nuxt-link class="nav-item" :to="'/'">Home</nuxt-link>
+				<nuxt-link class="nav-item" :to="'#'">Home</nuxt-link>
 				<nuxt-link class="nav-item" :to="'#aboutus'">About Us</nuxt-link>
 				<nuxt-link class="nav-item" :to="'#ourstory'">Our Story</nuxt-link>
 				<nuxt-link class="nav-item" :to="'#events'">Events</nuxt-link>
@@ -27,10 +27,46 @@ import type { Route } from 'vue-router';
 @Component
 export default class HeaderComponent extends Vue {
 	isDrawerOpen: boolean = false;
+	isIntersecting: boolean = false;
 
 	@Watch('$route')
 	onRouteChange(_route: Route, _from: Route) {
 		this.isDrawerOpen = false;
+	}
+
+	mounted() {
+		const sectionBanner = document.querySelector('[id="aboutus"]') as HTMLElement;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry: IntersectionObserverEntry) => {
+					if (entry.intersectionRatio > 0.9 && window.innerWidth > 756) {
+						this.isIntersecting = true;
+					} else if (entry.intersectionRatio > 0.4 && window.innerWidth < 1024) {
+						this.isIntersecting = true;
+					} else {
+						this.isIntersecting = false;
+					}
+				});
+			},
+			{
+				threshold: [ 0.4, 0.95 ],
+			},
+		);
+		observer.observe(sectionBanner);
+	}
+
+	beforeMount() {
+		window.addEventListener('scroll', this.handleScroll);
+	}
+
+	beforeDestroy() {
+		window.removeEventListener('scroll', this.handleScroll);
+	}
+
+	handleScroll() {
+		if (this.isDrawerOpen) {
+			this.isDrawerOpen = false;
+		}
 	}
 
 	onToggleDrawer() {
@@ -50,8 +86,28 @@ export default class HeaderComponent extends Vue {
 		width: 100vw;
 		padding: 20px 72px;
 
+		&.intersecting {
+			& /deep/ img {
+				filter: invert(100%);
+			}
+
+			& /deep/ .nav-item {
+				color: black;
+			}
+		}
+
 		@media (max-width: 768px) {
 			padding: 8px 16px;
+
+			&.intersecting {
+				& /deep/ img {
+					filter: invert(100%);
+				}
+
+				& /deep/ .nav-item {
+					color: black;
+				}
+			}
 		}
 	}
 }
@@ -77,8 +133,8 @@ export default class HeaderComponent extends Vue {
 		right: 0;
 		flex-direction: column;
 		background-color: white;
-		height: 100vh;
-		width: 60vw;
+		height: var(--doc-height);
+		width: 30vw;
 		align-items: end;
 		gap: 32px;
 		padding: 32px;
@@ -94,6 +150,10 @@ export default class HeaderComponent extends Vue {
 			font-size: 24px;
 		}
 	}
+
+	@media (max-width: 576px) {
+		width: 60vw;
+	}
 }
 
 .icon {
@@ -104,6 +164,7 @@ export default class HeaderComponent extends Vue {
 
 .icon-drawer {
 	display: none;
+
 	@media (max-width: 768px) {
 		display: inline;
 	}
