@@ -6,7 +6,7 @@
 				<img :src="require('@/assets/images/svg/ico-menu.svg')" />
 			</button>
 			<nav class="nav" :class="[{ 'show-drawer': isDrawerOpen }]" aria-label="breadcrumb">
-				<button class="icon-drawer" @click.stop="onToggleDrawer()">
+				<button class="icon-close" @click.stop="onToggleDrawer()">
 					<img :src="require('@/assets/images/svg/ico-close.svg')" />
 				</button>
 				<nuxt-link class="nav-item" :to="'#'">Home</nuxt-link>
@@ -86,12 +86,12 @@ export default class HeaderComponent extends Vue {
 		width: 100vw;
 		padding: 20px 72px;
 
-		& /deep/ img {
+		& /deep/ .icon, .icon-drawer {
 			filter: invert(100%);
 		}
 
 		&.intersecting {
-			& /deep/ img {
+			& /deep/ .icon, .icon-drawer {
 				filter: unset;
 			}
 
@@ -105,12 +105,12 @@ export default class HeaderComponent extends Vue {
 			padding: 16px;
 
 			&.intersecting {
-				& /deep/ img {
+				& /deep/ .icon, .icon-drawer {
 					filter: unset;
 				}
 
 				& /deep/ .nav-item {
-					color: white;
+					color: black;
 				}
 			}
 		}
