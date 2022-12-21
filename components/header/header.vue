@@ -2,7 +2,7 @@
 	<div class="header">
 		<div class="header-container" :class="[{ 'intersecting': isIntersecting }]">
 			<img class="icon" :src="require('@/assets/images/svg/ico-icon.svg')" />
-			<button class="icon-drawer" @click.stop="onToggleDrawer()">
+			<button class="icon-menu" @click.stop="onToggleDrawer()">
 				<img :src="require('@/assets/images/svg/ico-menu.svg')" />
 			</button>
 			<nav class="nav" :class="[{ 'show-drawer': isDrawerOpen }]" aria-label="breadcrumb">
@@ -86,12 +86,12 @@ export default class HeaderComponent extends Vue {
 		width: 100vw;
 		padding: 20px 72px;
 
-		& /deep/ .icon, .icon-drawer {
+		& /deep/ .icon, .icon-menu {
 			filter: invert(100%);
 		}
 
 		&.intersecting {
-			& /deep/ .icon, .icon-drawer {
+			& /deep/ .icon, .icon-menu {
 				filter: unset;
 			}
 
@@ -105,7 +105,7 @@ export default class HeaderComponent extends Vue {
 			padding: 16px;
 
 			&.intersecting {
-				& /deep/ .icon, .icon-drawer {
+				& /deep/ .icon, .icon-menu {
 					filter: unset;
 				}
 
@@ -167,7 +167,7 @@ export default class HeaderComponent extends Vue {
 	}
 }
 
-.icon-drawer {
+.icon-menu, .icon-close {
 	display: none;
 
 	@media (max-width: 768px) {
