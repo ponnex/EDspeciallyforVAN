@@ -2,6 +2,7 @@
 	<div>
 		<home-component />
 		<about-us-component />
+		<our-story-component />
 	</div>
 </template>
 
@@ -11,11 +12,13 @@ import moment, { unix } from 'moment';
 import { PWABus } from '@/events/pwa';
 import HomeComponent from '@/components/sections/home/home.vue';
 import AboutUsComponent from '@/components/sections/about-us/about-us.vue';
+import OurStoryComponent from '~/components/sections/our-story/our-story.vue';
 
 @Component({
 	components: {
 		HomeComponent,
 		AboutUsComponent,
+		OurStoryComponent,
 	},
 })
 export default class IndexPage extends Vue {

@@ -35,13 +35,13 @@ export default class HeaderComponent extends Vue {
 	}
 
 	mounted() {
-		const sectionBanner = document.querySelector('[id="aboutus"]') as HTMLElement;
+		const sectionBanner = document.querySelector('section[id*="#"]') as HTMLElement;
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry: IntersectionObserverEntry) => {
 					if (entry.intersectionRatio > 0.9 && window.innerWidth > 756) {
 						this.isIntersecting = true;
-					} else if (entry.intersectionRatio > 0.4 && window.innerWidth < 1024) {
+					} else if (entry.intersectionRatio > 0.33 && window.innerWidth < 1024) {
 						this.isIntersecting = true;
 					} else {
 						this.isIntersecting = false;
@@ -49,7 +49,7 @@ export default class HeaderComponent extends Vue {
 				});
 			},
 			{
-				threshold: [ 0.4, 0.95 ],
+				threshold: [ 0.33, 0.95 ],
 			},
 		);
 		observer.observe(sectionBanner);
@@ -86,26 +86,31 @@ export default class HeaderComponent extends Vue {
 		width: 100vw;
 		padding: 20px 72px;
 
+		& /deep/ img {
+			filter: invert(100%);
+		}
+
 		&.intersecting {
 			& /deep/ img {
-				filter: invert(100%);
+				filter: unset;
 			}
 
 			& /deep/ .nav-item {
-				color: black;
+				color: white;
 			}
 		}
 
 		@media (max-width: 768px) {
-			padding: 8px 16px;
+			height: 76px;
+			padding: 16px;
 
 			&.intersecting {
 				& /deep/ img {
-					filter: invert(100%);
+					filter: unset;
 				}
 
 				& /deep/ .nav-item {
-					color: black;
+					color: white;
 				}
 			}
 		}
@@ -118,7 +123,7 @@ export default class HeaderComponent extends Vue {
 	gap: 48px;
 
 	&-item {
-		color: white;
+		color: black;
 		font-size: 18px;
 	}
 
@@ -158,7 +163,7 @@ export default class HeaderComponent extends Vue {
 
 .icon {
 	@media (max-width: 768px) {
-		transform: scale(0.8);
+		max-width: 79px;
 	}
 }
 
@@ -166,7 +171,9 @@ export default class HeaderComponent extends Vue {
 	display: none;
 
 	@media (max-width: 768px) {
-		display: inline;
+		display: -webkit-inline-box;
+    display: inline-flex;
+		height: min-content;
 	}
 }
 </style>
