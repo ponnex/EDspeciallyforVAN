@@ -253,6 +253,7 @@ export default class AboutUsComponent extends Vue {
 		width: 100%;
 		display: flex;
 		justify-content: space-evenly;
+		margin-top: 16px;
 
 		@media (max-width: 768px) {
 			flex-direction: column;
