@@ -108,7 +108,8 @@ export default class OurStoryComponent extends Vue {}
 			max-width: 80%;
 		}
 		.vl {
-			border-left: 1px solid #000;
+			border-left: 2px solid black;
+			opacity: 0.4;
 			height: 45px;
 		}
 
