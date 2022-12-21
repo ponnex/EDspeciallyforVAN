@@ -73,7 +73,7 @@ export default class AboutUsComponent extends Vue {
 
 	created() {
 		setInterval(() => {
-			const date: any = duration(moment('January 08, 2023').diff(moment()));
+			const date: any = duration(moment('January 08, 2023 12:30 PM').diff(moment()));
 			const { days, hours, minutes, seconds } = date._data;
 			this.timeTillWedding = {
 				days,
@@ -83,17 +83,6 @@ export default class AboutUsComponent extends Vue {
 			};
 		}, 1000);
 	}
-
-	// get timeTillWedding() {
-	// 	const date: any = duration(moment('January 08, 2023').diff(moment()));
-	// 	const { days, hours, minutes, seconds } = date._data;
-	// 	return {
-	// 		days,
-	// 		hours,
-	// 		minutes,
-	// 		seconds,
-	// 	};
-	// }
 }
 </script>
 
