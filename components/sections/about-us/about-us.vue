@@ -35,19 +35,19 @@
 			<div class="countdown-content">
 				<div class="countdown-time">
 					<span>{{ timeTillWedding.days }}</span>
-					<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's': ''}` }}</span>
+					<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's' : ''}` }}</span>
 				</div>
 				<div class="countdown-time">
 					<span>{{ timeTillWedding.hours }}</span>
-					<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's': ''}` }}</span>
+					<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's' : ''}` }}</span>
 				</div>
 				<div class="countdown-time">
 					<span>{{ timeTillWedding.minutes }}</span>
-					<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's': ''}` }}</span>
+					<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's' : ''}` }}</span>
 				</div>
 				<div class="countdown-time">
 					<span>{{ timeTillWedding.seconds }}</span>
-					<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's': ''}` }}</span>
+					<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's' : ''}` }}</span>
 				</div>
 			</div>
 			<div class="countdown-border">
@@ -60,19 +60,40 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 import moment, { duration } from 'moment';
+import { Countdown } from '@/model/time';
 
 @Component
 export default class AboutUsComponent extends Vue {
-	get timeTillWedding() {
-		const date: any = duration(moment('January 08, 2023').diff(moment()));
-		const { days, hours, minutes, seconds } = date._data;
-		return {
-			days,
-			hours,
-			minutes,
-			seconds,
-		};
+	timeTillWedding: Countdown = {
+		days: 0,
+		hours: 0,
+		minutes: 0,
+		seconds: 0,
+	};
+
+	created() {
+		setInterval(() => {
+			const date: any = duration(moment('January 08, 2023').diff(moment()));
+			const { days, hours, minutes, seconds } = date._data;
+			this.timeTillWedding = {
+				days,
+				hours,
+				minutes,
+				seconds,
+			};
+		}, 1000);
 	}
+
+	// get timeTillWedding() {
+	// 	const date: any = duration(moment('January 08, 2023').diff(moment()));
+	// 	const { days, hours, minutes, seconds } = date._data;
+	// 	return {
+	// 		days,
+	// 		hours,
+	// 		minutes,
+	// 		seconds,
+	// 	};
+	// }
 }
 </script>
 
@@ -194,18 +215,18 @@ export default class AboutUsComponent extends Vue {
 .countdown {
 	&-wrapper {
 		display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	&-border {
 		float: left;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    padding: 20px 0px;
+		width: 100%;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		padding: 20px 0px;
 
 		&-text {
 			font-size: 20px;
@@ -231,7 +252,7 @@ export default class AboutUsComponent extends Vue {
 	&-content {
 		width: 100%;
 		display: flex;
-    justify-content: space-evenly;
+		justify-content: space-evenly;
 
 		@media (max-width: 768px) {
 			flex-direction: column;
@@ -241,9 +262,9 @@ export default class AboutUsComponent extends Vue {
 
 	&-time {
 		display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		font-family: 'Great Vibes';
 		font-size: 64px;
 		line-height: 46px;
