@@ -22,12 +22,13 @@ export default class HomeComponent extends Vue {
 	bannerImages: BannerImage[] = [];
 
 	settings = {
+		autoplaySpeed: 2500,
 		autoplay: true,
 		arrows: false,
 		dots: false,
+		centerMode: true,
 		pauseOnHover: false,
 		centerPadding: '0',
-		lazyLoad: 'progressive',
 	};
 
 	created() {
