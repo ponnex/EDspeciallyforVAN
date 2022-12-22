@@ -109,6 +109,7 @@ export default class HeaderComponent extends Vue {
 
 		&.nav-up {
 			top: -102px;
+			box-shadow: unset;
 		}
 
 		&.intersecting {
