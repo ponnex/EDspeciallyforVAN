@@ -5,13 +5,39 @@
 	>
 		<div class="header">
 			<span class="header-sub">
-				ADDITIONAL INFORMATION
+				WEDDING DETAILS
 			</span>
 			<span class="header-heading">
 				REMINDERS
 			</span>
 		</div>
 		<div class="content">
+			<div class="reminder-wrapper">
+				<div class="reminder">
+					<span class="heading">ADMISSION</span>
+					<span>This is an exclusive <strong>NO INVITATION, NO ADMISSION</strong> event.</span>
+					<span class="heading">EVENT STARTS</span>
+					<span>Registration starts at <strong>12:30 PM</strong> JANUARY 08 2023, SUNDAY.</span>
+				</div>
+				<div class="reminder">
+					<span class="heading">DRESS CODE</span>
+					<p>
+						We would love to have you share the moment of our joy and love as we unite as one. If you can, we will
+						be pleased if you will be able to wear attires that matches the color palette of our wedding day. Please
+						wear an attire that matches <em class="sub">royal blue & gray</em> tones and color as shown below. This is a formal event:
+						Strictly Long dress/gowns for ladies and Coat and tie for the gentlemen only are allowed during the
+						event.
+					</p>
+					<div class="palette-container">
+						<div class="palette-wrapper">
+							<div class="palette palette-blue"></div>
+							<div class="palette palette-gray"></div>
+							<div class="palette palette-gray-dark"></div>
+						</div>
+						<span>ROYAL BLUE & GRAY</span>
+					</div>
+				</div>
+			</div>
 			<div class="reminder-wrapper">
 				<div class="reminder">
 					<span class="heading">KIDS</span>
@@ -166,6 +192,10 @@ export default class RemindersComponent extends Vue { }
 			font-size: 18px;
 		}
 
+		.heading:not(:first-child) {
+			margin-top: 24px;
+		}
+
 		.sub,
 		.mobile {
 			color: #845F2D;
@@ -178,6 +208,41 @@ export default class RemindersComponent extends Vue { }
 			align-items: center;
 			text-align: center;
 			gap: 16px;
+		}
+
+		.palette {
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
+			display: inline-block;
+
+			&-container {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				font-weight: 600;
+			}
+
+			&-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 24px;
+				padding: 24px 0px;
+			}
+
+			&-blue {
+				background-color: #36419A;
+			}
+
+			&-gray {
+				background-color: #D9D9D9;
+			}
+
+			&-gray-dark {
+				background-color: #8A8782;
+			}
 		}
 	}
 
