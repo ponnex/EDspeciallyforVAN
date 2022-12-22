@@ -69,6 +69,7 @@ export default class EventsComponent extends Vue {}
 	padding: 24px;
 	padding-top: 100px;
 	padding-bottom: 48px;
+	height: 100%;
 
 	@media (max-width: 768px) {
 		height: 100%;
@@ -150,7 +151,7 @@ export default class EventsComponent extends Vue {}
 
 		.program {
 			&-item {
-				grid-template-columns: 100px 1fr;
+				grid-template-columns: 90px 1fr;
 				.date {
 					font-size: 16px;
 				}
@@ -158,6 +159,8 @@ export default class EventsComponent extends Vue {}
 				.title {
 					font-size: 16px;
 					line-height: 24px;
+					word-break: break-word;
+					padding: 0px 30px;
 				}
 			}
 		}
