@@ -116,7 +116,7 @@ export default class EventsComponent extends Vue {}
 	display: flex;
 	justify-content: space-evenly;
 	max-width: 1440px;
-	margin: 36px 0px 0px 0px;
+	margin: 36px auto 0px;
 
 	.program {
 		display: flex;
@@ -157,7 +157,7 @@ export default class EventsComponent extends Vue {}
 	@media (max-width: 768px) {
 		flex-direction: column;
 		gap: 48px;
-		margin: 24px 0px 0px 0px;
+		margin: 24px auto 0px;
 
 		.program {
 			&-item {

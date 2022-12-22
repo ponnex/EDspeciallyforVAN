@@ -183,7 +183,7 @@ export default class RemindersComponent extends Vue { }
 	max-width: 1440px;
 	margin: 0 auto;
 	gap: 48px;
-	margin: 82px 0px 0px 0px;
+	margin: 82px auto 0px;
 
 	.reminder {
 		display: flex;
@@ -257,7 +257,7 @@ export default class RemindersComponent extends Vue { }
 
 	@media (max-width: 768px) {
 		flex-direction: column;
-		margin: 64px 0px 0px 0px;
+		margin: 64px auto 0px;
 
 		.reminder {
 			&-wrapper {

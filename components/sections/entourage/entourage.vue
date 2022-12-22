@@ -163,7 +163,7 @@ export default class EntourageComponent extends Vue {}
 	flex-direction: column;
 	max-width: 1440px;
 	gap: 48px;
-	margin: 82px 0px;
+	margin: 82px auto 0px;
 
 	.entourage {
 		display: flex;
@@ -212,7 +212,7 @@ export default class EntourageComponent extends Vue {}
 
 	@media (max-width: 768px) {
 		flex-direction: column;
-		margin: 64px 0px;
+		margin: 64px auto 0px;
 
 		.entourage {
 			&-wrapper {
