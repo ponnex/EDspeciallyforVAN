@@ -24,7 +24,8 @@
 					<p>
 						We would love to have you share the moment of our joy and love as we unite as one. If you can, we will
 						be pleased if you will be able to wear attires that matches the color palette of our wedding day. Please
-						wear an attire that matches <em class="sub">royal blue & gray</em> tones and color as shown below. This is a formal event:
+						wear an attire that matches <em class="sub">royal blue & gray</em> tones and color as shown below. This is a
+						formal event:
 						Strictly Long dress/gowns for ladies and Coat and tie for the gentlemen only are allowed during the
 						event.
 					</p>
@@ -43,10 +44,13 @@
 					<span class="heading">KIDS</span>
 					<p>
 						— are very much welcome during the Buddhism and
-						reception ceremonies, however they are going to be separated in an exclusive area for kids- Kalinaw Hall in
-						the church and bride's make up room in Cove. Parents are encouraged to let them bring their own toys and
-						other
-						essentials that would last them all throughout the day. They are placed under the supervision of adults who
+						reception ceremonies, however they are going to be separated in an exclusive area for kids - <em>Kalinaw
+							Hall</em> in
+						the church and <em>bride's make up room in Cove</em>. Parents are encouraged to let them bring their <em>own
+							toys and
+							other
+							essentials </em>that would last them all throughout the day. They are placed under the supervision of
+						adults who
 						are
 						assigned for this task, so there's nothing to worry about. This is initiated so that the guests can focus on
 						the ceremonies while the kids will have their own way of enjoying the day.
@@ -62,7 +66,7 @@
 					<p>
 						All guests assigned in tables 1 to 9 will hold their money as one and will think of one dare
 						for the couple to do in exchange for the money you have gathered in your table. So every table is encouraged
-						to have a fun dare for the couple. The table with the highest amount will receive a prize from the couple.
+						to have a <em>fun dare</em> for the couple. The table with the <em>highest amount</em> will receive a prize from the couple.
 					</p>
 					<span class="sub">Ex:</span>
 					<p>For 10,000 pesos, we dare the couple to do a 5-second kiss.</p>
