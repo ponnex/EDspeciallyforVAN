@@ -33,7 +33,7 @@
 					<span class="role">Groomsmen</span>
 				</div>
 				<div class="entourage">
-					<span class="name">CHARLENE SHIN RAVIDAS</span>
+					<span class="name">CHARLENE RAVIDAS</span>
 					<span class="name">LYNDIL ANN BALABAG</span>
 					<span class="name">GERALD VENTA</span>
 					<span class="name">MARJUN REY MALAYAN</span>
@@ -147,13 +147,21 @@ export default class EntourageComponent extends Vue {}
 	@media (max-width: 768px) {
 		padding-top: 16px;
 		gap: 8px;
+
+		&-sub {
+			font-size: 14px;
+			color: #845F2D;
+		}
+
+		&-heading {
+			font-size: 36px;
+		}
 	}
 }
 .content {
 	display: flex;
 	flex-direction: column;
 	max-width: 1440px;
-	margin: 0 auto;
 	gap: 48px;
 	margin: 82px 0px;
 
@@ -209,6 +217,7 @@ export default class EntourageComponent extends Vue {}
 		.entourage {
 			&-wrapper {
 				flex-direction: column;
+				padding: 0px 8px;
 				gap: 48px;
 
 				.entourage:first-of-type {

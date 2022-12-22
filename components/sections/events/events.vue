@@ -100,6 +100,15 @@ export default class EventsComponent extends Vue {}
 	@media (max-width: 768px) {
 		padding-top: 16px;
 		gap: 8px;
+
+		&-sub {
+			font-size: 14px;
+			color: #845F2D;
+		}
+
+		&-heading {
+			font-size: 36px;
+		}
 	}
 }
 
@@ -107,7 +116,7 @@ export default class EventsComponent extends Vue {}
 	display: flex;
 	justify-content: space-evenly;
 	max-width: 1440px;
-	margin: 0 auto;
+	margin: 36px 0px 0px 0px;
 
 	.program {
 		display: flex;
@@ -148,6 +157,7 @@ export default class EventsComponent extends Vue {}
 	@media (max-width: 768px) {
 		flex-direction: column;
 		gap: 48px;
+		margin: 24px 0px 0px 0px;
 
 		.program {
 			&-item {

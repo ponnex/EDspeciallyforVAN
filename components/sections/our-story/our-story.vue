@@ -87,6 +87,15 @@ export default class OurStoryComponent extends Vue {}
 	@media (max-width: 768px) {
 		padding-top: 16px;
 		gap: 8px;
+
+		&-sub {
+			font-size: 14px;
+			color: #845F2D;
+		}
+
+		&-heading {
+			font-size: 36px;
+		}
 	}
 }
 
