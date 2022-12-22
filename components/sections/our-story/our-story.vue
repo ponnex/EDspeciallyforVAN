@@ -10,7 +10,7 @@
 		</div>
 		<div class="content">
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/1.png" />
+				<img class="icon" src="/images/ourstory/1.webp" />
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">5 JUN 2006</span>
@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/2.png" />
+				<img class="icon" src="/images/ourstory/2.webp" />
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">13 NOV 2017</span>
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/3.png" />
+				<img class="icon" src="/images/ourstory/3.webp" />
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">15 DEC 2021</span>
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/4.png" />
+				<img class="icon" src="/images/ourstory/4.webp" />
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">08 JAN 2023</span>

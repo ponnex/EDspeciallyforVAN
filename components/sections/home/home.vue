@@ -32,7 +32,7 @@ export default class HomeComponent extends Vue {
 	};
 
 	created() {
-		this.importAll(require.context('@/static/images/banner/', false, /\.jpg$/));
+		this.importAll(require.context('@/static/images/banner/', false, /\.webp$/));
 	}
 
 	importAll(r: any) {

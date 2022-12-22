@@ -95,7 +95,7 @@
 						<img
 							height="150px"
 							width="150px"
-							src="/qrgift.png"
+							src="/qrgift.webp"
 						/>
 					</div>
 				</div>

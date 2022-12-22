@@ -15,7 +15,7 @@
 			<div class="content">
 				<div class="content-couple">
 					<img
-						src="Ed Ryan Balabag.png"
+						src="ed.webp"
 						draggable="false"
 					/>
 					<span class="couple-name">Ed Ryan Balabag</span>
@@ -32,7 +32,7 @@
 				</div>
 				<div class="content-couple">
 					<img
-						src="/Vanessa Crystal Estremos.png"
+						src="van.webp"
 						draggable="false"
 					/>
 					<span class="couple-name">Vanessa Crystal Estremos</span>
