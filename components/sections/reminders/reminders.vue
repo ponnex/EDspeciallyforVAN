@@ -75,17 +75,17 @@
 						If there's anything that you need assistance with on the day of the wedding, you may certainly seek help
 						from the core entourage:
 					</p>
-					<span>Nichole (Head of Entourage)</span>
+					<span>Nichole <em>(Head of Entourage)</em></span>
 					<a
 						href="tel:+639982949192"
 						class="mobile"
 					>0998-294-9192</a>
-					<span>Charlene (Matron of Honor)</span>
+					<span>Charlene <em>(Matron of Honor)</em></span>
 					<a
 						href="tel:+639176520141"
 						class="mobile"
 					>0917-652-0141</a>
-					<span>Isamie (Maid of Honor)</span>
+					<span>Isamie <em>(Maid of Honor)</em></span>
 					<a
 						href="tel:+639762755443"
 						class="mobile"
