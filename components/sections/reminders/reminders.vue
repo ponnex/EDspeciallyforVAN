@@ -27,28 +27,6 @@
 					</p>
 				</div>
 				<div class="reminder">
-					<span class="heading">GIFTS</span>
-					<p>
-						In relation to the celebration, we know how much you would want to send your best wishes through gifts or
-						well
-						wishes. If you happen to have something in mind, we would wish to discourage you from preparing such. Your
-						presence alone is what we ask of you. But if you wish to insist, we have listed our wishlist from SM gift
-						registry. They have offered their service to settle our gifts without the hassle on your end. You may visit
-						the link here:
-					</p>
-					<a
-						href="https://thesmstoregiftregistry.com/eventdetail/634c311764223426c6070332"
-						target="_blank"
-						class="link"
-					>
-						<span class="sub">The SM Store Gift Registry</span>
-					</a>
-					<span>or scan this QR code</span>
-					<img height="150px" width="150px" src="/qrgift.png" />
-				</div>
-			</div>
-			<div class="reminder-wrapper">
-				<div class="reminder">
 					<span class="heading">PROGRAM NOTICE</span>
 					<p>
 						During the reception program, the couple would like to do away with the usual money dance for the guests.
@@ -62,6 +40,34 @@
 					</p>
 					<span class="sub">Ex:</span>
 					<p>For 10,000 pesos, we dare the couple to do a 5-second kiss.</p>
+				</div>
+			</div>
+			<div class="reminder-wrapper">
+				<div class="reminder">
+					<span class="heading">GIFTS</span>
+					<p>
+						In relation to the celebration, we know how much you would want to send your best wishes through gifts or
+						well
+						wishes. If you happen to have something in mind, we would wish to discourage you from preparing such. Your
+						presence alone is what we ask of you. But if you wish to insist, we have listed our wishlist from SM gift
+						registry. They have offered their service to settle our gifts without the hassle on your end. You may visit
+						the link here: <a
+							href="https://thesmstoregiftregistry.com/eventdetail/634c311764223426c6070332"
+							target="_blank"
+							class="link sub"
+						>
+							The SM Store Gift Registry
+						</a>
+					</p>
+
+					<div class="qr-wrapper">
+						<span>or scan this QR code</span>
+						<img
+							height="150px"
+							width="150px"
+							src="/qrgift.png"
+						/>
+					</div>
 				</div>
 				<div class="reminder">
 					<span class="heading">ON THE DAY HOTLINE</span>
@@ -142,7 +148,7 @@ export default class RemindersComponent extends Vue { }
 	max-width: 1440px;
 	margin: 0 auto;
 	gap: 48px;
-	margin: 82px 0px;
+	margin: 82px 0px 0px 0px;
 
 	.reminder {
 		display: flex;
@@ -164,12 +170,28 @@ export default class RemindersComponent extends Vue { }
 		.mobile {
 			color: #845F2D;
 		}
+
+		.qr-wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			gap: 16px;
+		}
 	}
 
 	@media (max-width: 768px) {
 		flex-direction: column;
-		margin: 64px 0px;
+		margin: 64px 0px 0px 0px;
 
+		.reminder {
+			&-wrapper {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 48px;
+			}
+		}
 	}
 }
 </style>
