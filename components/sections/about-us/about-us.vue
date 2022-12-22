@@ -1,5 +1,8 @@
 <template>
-	<section id="aboutus" class="section">
+	<section
+		id="aboutus"
+		class="section"
+	>
 		<div class="header">
 			<span class="header-sub">
 				ARE GETTING MARRIED!
@@ -11,7 +14,10 @@
 		<div class="content-wrapper">
 			<div class="content">
 				<div class="content-couple">
-					<img src="Ed Ryan Balabag.png" draggable="false" />
+					<img
+						src="Ed Ryan Balabag.png"
+						draggable="false"
+					/>
 					<span class="couple-name">Ed Ryan Balabag</span>
 				</div>
 				<div class="content-invitation">
@@ -25,35 +31,36 @@
 					</div>
 				</div>
 				<div class="content-couple">
-					<img src="/Vanessa Crystal Estremos.png" draggable="false" />
+					<img
+						src="/Vanessa Crystal Estremos.png"
+						draggable="false"
+					/>
 					<span class="couple-name">Vanessa Crystal Estremos</span>
 				</div>
 			</div>
-			<div class="countdown-wrapper">
-				<div class="countdown-border">
-					<span class="countdown-border-text">DON'T MISS IT!</span>
+			<div class="countdown-border">
+				<span class="countdown-border-text">DON'T MISS IT!</span>
+			</div>
+			<div class="countdown-content">
+				<div class="countdown-time">
+					<span>{{ timeTillWedding.days }}</span>
+					<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's' : ''}` }}</span>
 				</div>
-				<div class="countdown-content">
-					<div class="countdown-time">
-						<span>{{ timeTillWedding.days }}</span>
-						<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's' : ''}` }}</span>
-					</div>
-					<div class="countdown-time">
-						<span>{{ timeTillWedding.hours }}</span>
-						<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's' : ''}` }}</span>
-					</div>
-					<div class="countdown-time">
-						<span>{{ timeTillWedding.minutes }}</span>
-						<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's' : ''}` }}</span>
-					</div>
-					<div class="countdown-time">
-						<span>{{ timeTillWedding.seconds }}</span>
-						<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's' : ''}` }}</span>
-					</div>
+				<div class="countdown-time">
+					<span>{{ timeTillWedding.hours }}</span>
+					<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's' : ''}` }}</span>
 				</div>
-				<div class="countdown-border">
-					<span class="countdown-border-text">UNTIL WE GET MARRIED!</span>
+				<div class="countdown-time">
+					<span>{{ timeTillWedding.minutes }}</span>
+					<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's' : ''}` }}</span>
 				</div>
+				<div class="countdown-time">
+					<span>{{ timeTillWedding.seconds }}</span>
+					<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's' : ''}` }}</span>
+				</div>
+			</div>
+			<div class="countdown-border">
+				<span class="countdown-border-text">UNTIL WE GET MARRIED!</span>
 			</div>
 		</div>
 	</section>

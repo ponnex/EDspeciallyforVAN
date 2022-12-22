@@ -169,7 +169,7 @@ export default class HeaderComponent extends Vue {
 		right: 0;
 		flex-direction: column;
 		background-color: white;
-		height: var(--doc-height);
+		height: 100vh;
 		width: 30vw;
 		align-items: end;
 		gap: 32px;

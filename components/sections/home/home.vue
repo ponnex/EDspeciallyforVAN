@@ -33,17 +33,6 @@ export default class HomeComponent extends Vue {
 
 	created() {
 		this.importAll(require.context('@/static/images/banner/', false, /\.jpg$/));
-
-		let timeoutId: any = null;
-		const documentHeight = () => {
-			clearTimeout(timeoutId); // avoid execution of previous timeouts
-			timeoutId = setTimeout(() => {
-				const doc = document.documentElement;
-				doc.style.setProperty('--doc-height', `${window.innerHeight}px`);
-			}, 200);
-		};
-		window.addEventListener('resize', documentHeight);
-		documentHeight();
 	}
 
 	importAll(r: any) {
@@ -60,14 +49,10 @@ export default class HomeComponent extends Vue {
 <style lang="scss" scoped>
 .section {
 	position: relative;
-
-	@media (max-width: 576px) {
-		height: var(--doc-height);
-	}
 }
 
 .carousel-image {
-	height: var(--doc-height);
+	height: 100vh;
 	width: 100vw;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -76,7 +61,7 @@ export default class HomeComponent extends Vue {
 
 .banner {
 	position: absolute;
-	top: 128px;
+	top: 0;
 	bottom: 0;
 	margin: auto 72px;
 	display: flex;
@@ -89,8 +74,8 @@ export default class HomeComponent extends Vue {
 	&-header {
 		display: table-caption;
 		word-spacing: 9999rem;
-		font-size: 128px;
-		line-height: 128px;
+		font-size: 112px;
+		line-height: 112px;
 		font-weight: 400;
 	}
 
@@ -102,12 +87,11 @@ export default class HomeComponent extends Vue {
 
 	&-carousel {
 		& /deep/ .slick-list {
-			height: var(--doc-height) !important;
+			height: 100% !important;
 		}
 	}
 
 	@media (max-width: 768px) {
-		top: unset;
 		margin: 24px;
 		gap: 40px;
 		width: auto;
