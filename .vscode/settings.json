@@ -16,4 +16,5 @@
     "[vue]": {
         "editor.defaultFormatter": "Vue.volar"
     },
+    "html.format.wrapAttributes": "force-expand-multiline"
 }

@@ -5,6 +5,7 @@
 		<our-story-component />
 		<events-component />
 		<entourage-component />
+		<reminders-component />
 	</div>
 </template>
 
@@ -17,6 +18,7 @@ import AboutUsComponent from '@/components/sections/about-us/about-us.vue';
 import OurStoryComponent from '@/components/sections/our-story/our-story.vue';
 import EventsComponent from '@/components/sections/events/events.vue';
 import EntourageComponent from '@/components/sections/entourage/entourage.vue';
+import RemindersComponent from '@/components/sections/reminders/reminders.vue';
 
 @Component({
 	components: {
@@ -25,6 +27,7 @@ import EntourageComponent from '@/components/sections/entourage/entourage.vue';
 		OurStoryComponent,
 		EventsComponent,
 		EntourageComponent,
+		RemindersComponent,
 	},
 })
 export default class IndexPage extends Vue {

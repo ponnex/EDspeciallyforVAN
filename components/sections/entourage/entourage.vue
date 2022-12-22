@@ -10,12 +10,12 @@
 		</div>
 		<div class="content">
 			<div class="entourage">
-				<span class="name">NICHOLE JOHN A. TUBA</span>
+				<span class="name">NICHOLE JOHN TUBA</span>
 				<span class="role">Head of Entourage</span>
 			</div>
 			<div class="entourage">
-				<span class="name">JAIREH JAMES U. PAHALLA</span>
-				<span class="name">CHARLENE MAE P. PAHALLA</span>
+				<span class="name">JAIREH JAMES PAHALLA</span>
+				<span class="name">CHARLENE MAE PAHALLA</span>
 				<span class="role">Man & Matron of Honor</span>
 			</div>
 			<div class="entourage">
@@ -29,7 +29,7 @@
 					<span class="name">JOVER MADRIDANO</span>
 					<span class="name">MARK DENZEL BALABAG</span>
 					<span class="name">KHEUZ VANN FUENTES</span>
-					<span class="name">ROMAFEL ROXAS</span>
+					<span class="name">ROMAFEL ROXAS JR</span>
 					<span class="role">Groomsmen</span>
 				</div>
 				<div class="entourage">
@@ -149,7 +149,6 @@ export default class EntourageComponent extends Vue {}
 		gap: 8px;
 	}
 }
-
 .content {
 	display: flex;
 	flex-direction: column;
