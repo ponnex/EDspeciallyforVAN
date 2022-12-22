@@ -8,50 +8,52 @@
 				GROOM AND BRIDE
 			</span>
 		</div>
-		<div class="content">
-			<div class="content-couple">
-				<img src="Ed Ryan Balabag.png" draggable="false" />
-				<span class="couple-name">Ed Ryan Balabag</span>
-			</div>
-			<div class="content-invitation">
-				<span class="heading">Invitation</span>
-				<span class="sub-header"><span class="sub-header-pre">Hi <strong>Guest,</strong></span> We Are Excited To
-					Invite You On</span>
-				<div class="date">
-					<span class="day">Sunday</span>
-					<span>08TH JANUARY,</span>
-					<span>2023</span>
+		<div class="content-wrapper">
+			<div class="content">
+				<div class="content-couple">
+					<img src="Ed Ryan Balabag.png" draggable="false" />
+					<span class="couple-name">Ed Ryan Balabag</span>
+				</div>
+				<div class="content-invitation">
+					<span class="heading">Invitation</span>
+					<span class="sub-header"><span class="sub-header-pre">Hi <strong>Guest,</strong></span> We Are Excited To
+						Invite You On</span>
+					<div class="date">
+						<span class="day">Sunday</span>
+						<span>08TH JANUARY,</span>
+						<span>2023</span>
+					</div>
+				</div>
+				<div class="content-couple">
+					<img src="/Vanessa Crystal Estremos.png" draggable="false" />
+					<span class="couple-name">Vanessa Crystal Estremos</span>
 				</div>
 			</div>
-			<div class="content-couple">
-				<img src="/Vanessa Crystal Estremos.png" draggable="false" />
-				<span class="couple-name">Vanessa Crystal Estremos</span>
-			</div>
-		</div>
-		<div class="countdown-wrapper">
-			<div class="countdown-border">
-				<span class="countdown-border-text">DON'T MISS IT!</span>
-			</div>
-			<div class="countdown-content">
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.days }}</span>
-					<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's' : ''}` }}</span>
+			<div class="countdown-wrapper">
+				<div class="countdown-border">
+					<span class="countdown-border-text">DON'T MISS IT!</span>
 				</div>
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.hours }}</span>
-					<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's' : ''}` }}</span>
+				<div class="countdown-content">
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.days }}</span>
+						<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's' : ''}` }}</span>
+					</div>
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.hours }}</span>
+						<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's' : ''}` }}</span>
+					</div>
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.minutes }}</span>
+						<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's' : ''}` }}</span>
+					</div>
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.seconds }}</span>
+						<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's' : ''}` }}</span>
+					</div>
 				</div>
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.minutes }}</span>
-					<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's' : ''}` }}</span>
+				<div class="countdown-border">
+					<span class="countdown-border-text">UNTIL WE GET MARRIED!</span>
 				</div>
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.seconds }}</span>
-					<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's' : ''}` }}</span>
-				</div>
-			</div>
-			<div class="countdown-border">
-				<span class="countdown-border-text">UNTIL WE GET MARRIED!</span>
 			</div>
 		</div>
 	</section>
@@ -88,15 +90,10 @@ export default class AboutUsComponent extends Vue {
 
 <style lang="scss" scoped>
 .section {
-	padding: 24px;
-	padding-top: 100px;
-	padding-bottom: 48px;
+	padding: 48px 24px;
 
 	@media (max-width: 768px) {
-		height: 100%;
-		padding: 16px;
-		padding-top: 60px;
-		padding-bottom: 24px;
+		padding: 24px 16px;
 	}
 }
 
@@ -105,7 +102,6 @@ export default class AboutUsComponent extends Vue {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 16px;
 	padding-top: 20px;
 	text-align: center;
 
@@ -120,7 +116,6 @@ export default class AboutUsComponent extends Vue {
 
 	@media (max-width: 768px) {
 		padding-top: 16px;
-		gap: 8px;
 
 		&-sub {
 			font-size: 14px;
@@ -139,6 +134,13 @@ export default class AboutUsComponent extends Vue {
 	justify-content: space-evenly;
 	max-width: 1440px;
 	margin: 0 auto;
+
+	&-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 	&-couple {
 		display: flex;

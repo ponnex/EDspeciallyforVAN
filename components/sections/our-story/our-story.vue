@@ -54,15 +54,11 @@ export default class OurStoryComponent extends Vue {}
 
 <style lang="scss" scoped>
 .section {
-	padding: 24px;
-	padding-top: 100px;
-	padding-bottom: 48px;
+	padding: 48px 24px;
 
 	@media (max-width: 768px) {
+		padding: 24px 16px;
 		height: 100%;
-		padding: 16px;
-		padding-top: 60px;
-		padding-bottom: 24px;
 	}
 }
 
@@ -71,7 +67,6 @@ export default class OurStoryComponent extends Vue {}
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 16px;
 	padding-top: 20px;
 	text-align: center;
 
@@ -86,7 +81,6 @@ export default class OurStoryComponent extends Vue {}
 
 	@media (max-width: 768px) {
 		padding-top: 16px;
-		gap: 8px;
 
 		&-sub {
 			font-size: 14px;

@@ -113,16 +113,12 @@ export default class EntourageComponent extends Vue {}
 
 <style lang="scss" scoped>
 .section {
-	padding: 24px;
-	padding-top: 100px;
-	padding-bottom: 48px;
+	padding: 48px 24px;
 	height: 100%;
 
 	@media (max-width: 768px) {
+		padding: 24px 16px;
 		height: 100%;
-		padding: 16px;
-		padding-top: 60px;
-		padding-bottom: 24px;
 	}
 }
 
@@ -131,8 +127,7 @@ export default class EntourageComponent extends Vue {}
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 16px;
-	padding-top: 20px;
+	padding-top: 64px;
 	text-align: center;
 
 	&-sub {
@@ -145,8 +140,7 @@ export default class EntourageComponent extends Vue {}
 	}
 
 	@media (max-width: 768px) {
-		padding-top: 16px;
-		gap: 8px;
+		padding-top: 48px;
 
 		&-sub {
 			font-size: 14px;

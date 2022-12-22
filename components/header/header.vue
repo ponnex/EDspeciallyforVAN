@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-		<div class="header-container" :class="[{ 'intersecting': isIntersecting }]">
+		<div ref="headerContainer" class="header-container" :class="[{ 'intersecting': isIntersecting }]">
 			<img class="icon" :src="require('@/assets/images/svg/ico-icon.svg')" />
 			<button class="icon-menu" @click.stop="onToggleDrawer()">
 				<img :src="require('@/assets/images/svg/ico-menu.svg')" />
@@ -21,13 +21,15 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch } from 'nuxt-property-decorator';
+import { Vue, Component, Watch, Ref } from 'nuxt-property-decorator';
 import type { Route } from 'vue-router';
 
 @Component
 export default class HeaderComponent extends Vue {
+	@Ref('headerContainer') headerContainerRef!: HTMLDivElement;
 	isDrawerOpen: boolean = false;
 	isIntersecting: boolean = false;
+	prevScrollpos: number = window.pageYOffset;
 
 	@Watch('$route')
 	onRouteChange(_route: Route, _from: Route) {
@@ -39,9 +41,9 @@ export default class HeaderComponent extends Vue {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry: IntersectionObserverEntry) => {
-					if (entry.intersectionRatio > 0.9 && window.innerWidth > 756) {
+					if (entry.intersectionRatio > 0.1 && window.innerWidth > 1024) {
 						this.isIntersecting = true;
-					} else if (entry.intersectionRatio > 0.33 && window.innerWidth < 1024) {
+					} else if (entry.intersectionRatio > 0.08 && window.innerWidth < 756) {
 						this.isIntersecting = true;
 					} else {
 						this.isIntersecting = false;
@@ -49,10 +51,20 @@ export default class HeaderComponent extends Vue {
 				});
 			},
 			{
-				threshold: [ 0.33, 0.95 ],
+				threshold: [ 0.08, 0.1 ],
 			},
 		);
 		observer.observe(sectionBanner);
+
+		window.onscroll = () => {
+			const currentScrollPos = window.pageYOffset;
+			if (this.prevScrollpos > currentScrollPos) {
+				this.headerContainerRef.classList.remove('nav-up');
+			} else {
+				this.headerContainerRef.classList.add('nav-up');
+			}
+			this.prevScrollpos = currentScrollPos;
+		};
 	}
 
 	beforeMount() {
@@ -80,17 +92,28 @@ export default class HeaderComponent extends Vue {
 	&-container {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		position: fixed;
 		top: 0;
 		z-index: 999;
 		width: 100vw;
 		padding: 20px 72px;
+		transition: top 0.2s ease-in-out;
+		background-color: white;
+		box-shadow: white 0 4px 4px -1px;
+		height: 102px;
 
 		& /deep/ .icon, .icon-menu {
 			filter: invert(100%);
 		}
 
+		&.nav-up {
+			top: -102px;
+		}
+
 		&.intersecting {
+			background-color: unset;
+			box-shadow: unset;
 			& /deep/ .icon, .icon-menu {
 				filter: unset;
 			}
@@ -104,7 +127,14 @@ export default class HeaderComponent extends Vue {
 			height: 76px;
 			padding: 16px;
 
+			& /deep/ .icon-menu {
+				height: 28px;
+				width: 28px;
+			}
+
 			&.intersecting {
+				background-color: unset;
+				box-shadow: unset;
 				& /deep/ .icon, .icon-menu {
 					filter: unset;
 				}
@@ -162,6 +192,7 @@ export default class HeaderComponent extends Vue {
 }
 
 .icon {
+	max-width: 112px;
 	@media (max-width: 768px) {
 		max-width: 79px;
 	}
