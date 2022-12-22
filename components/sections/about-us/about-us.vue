@@ -17,6 +17,7 @@
 					<img
 						src="ed.webp"
 						draggable="false"
+						alt="Ed Portrait"
 					/>
 					<span class="couple-name">Ed Ryan Balabag</span>
 				</div>
@@ -34,6 +35,7 @@
 					<img
 						src="van.webp"
 						draggable="false"
+						alt="Van Portrait"
 					/>
 					<span class="couple-name">Vanessa Crystal Estremos</span>
 				</div>

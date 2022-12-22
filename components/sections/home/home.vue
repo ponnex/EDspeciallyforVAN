@@ -2,7 +2,7 @@
 	<section id="#" class="section">
 		<vue-slick-carousel ref="banner-carousel" class="banner-carousel" v-bind="settings">
 			<div v-for="(image, imageIdx) in bannerImages" :key="imageIdx">
-				<img class="carousel-image" :src="image.pathLong" draggable="false" />
+				<img class="carousel-image" :src="image.pathLong" draggable="false" alt="carousel image" />
 			</div>
 		</vue-slick-carousel>
 		<div class="banner">

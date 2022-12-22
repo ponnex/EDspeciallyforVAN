@@ -96,6 +96,7 @@
 							height="150px"
 							width="150px"
 							src="/qrgift.webp"
+							alt="gift registry qr code"
 						/>
 					</div>
 				</div>

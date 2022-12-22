@@ -1,13 +1,13 @@
 <template>
 	<div class="header">
 		<div ref="headerContainer" class="header-container" :class="[{ 'intersecting': isIntersecting }]">
-			<img class="icon" :src="require('@/assets/images/svg/ico-icon.svg')" />
+			<img class="icon" :src="require('@/assets/images/svg/ico-icon.svg')" alt="Ed Ryan and Vanessa logo" />
 			<button class="icon-menu" @click.stop="onToggleDrawer()">
-				<img :src="require('@/assets/images/svg/ico-menu.svg')" />
+				<img :src="require('@/assets/images/svg/ico-menu.svg')" alt="menu" />
 			</button>
 			<nav class="nav" :class="[{ 'show-drawer': isDrawerOpen }]" aria-label="breadcrumb">
 				<button class="icon-close" @click.stop="onToggleDrawer()">
-					<img :src="require('@/assets/images/svg/ico-close.svg')" />
+					<img :src="require('@/assets/images/svg/ico-close.svg')" alt="close" />
 				</button>
 				<nuxt-link class="nav-item" :to="'#'">Home</nuxt-link>
 				<nuxt-link class="nav-item" :to="'#aboutus'">About Us</nuxt-link>
