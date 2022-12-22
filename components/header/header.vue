@@ -56,7 +56,7 @@ export default class HeaderComponent extends Vue {
 		);
 		observer.observe(sectionBanner);
 
-		window.onscroll = () => {
+		window.addEventListener('scroll', () => {
 			const currentScrollPos = window.pageYOffset;
 			if (this.prevScrollpos > currentScrollPos) {
 				this.headerContainerRef.classList.remove('nav-up');
@@ -64,7 +64,7 @@ export default class HeaderComponent extends Vue {
 				this.headerContainerRef.classList.add('nav-up');
 			}
 			this.prevScrollpos = currentScrollPos;
-		};
+		});
 	}
 
 	beforeMount() {
