@@ -196,7 +196,7 @@ export default class EntourageComponent extends Vue {}
 		.role {
 			font-family: 'Great Vibes';
 			font-size: 24px;
-			letter-spacing: 0.28em;
+			letter-spacing: 0.1em;
 			color: #845F2D;
 			text-align: center;
 		}
@@ -227,7 +227,6 @@ export default class EntourageComponent extends Vue {}
 			}
 			.role {
 				font-size: 20px;
-				letter-spacing: 0.18em;
 			}
 		}
 	}
