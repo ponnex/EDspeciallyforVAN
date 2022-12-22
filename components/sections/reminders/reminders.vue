@@ -5,7 +5,7 @@
 	>
 		<div class="header">
 			<span class="header-sub">
-				WEDDING DETAILS
+				ADDITIONAL INFORMATION
 			</span>
 			<span class="header-heading">
 				REMINDERS
