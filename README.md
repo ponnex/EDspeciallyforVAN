@@ -1,4 +1,18 @@
-# edspeciallyforvan
+<h1 align="center">EDspeciallyforVAN</h1>
+
+<p align="center">
+  EDspeciallyforVAN is a tailor-made website project for creating a personalized digital wedding invitation for a friend Ed and Van special day. The website will showcase all the necessary details, such as 	event date, venue information, RSVP functionality, and more.
+</p>
+</br>
+
+![screencapture-edspeciallyforvan-netlify-app-2022-12-22-20_04_38](https://github.com/ponnex/EDspeciallyforVAN/assets/10062054/742da429-f3ff-4515-8aca-248bc51e36e8)
+
+## Website
+You can check website [here](https://edspeciallyforvan.netlify.app/) or [here](https://edspeciallyforvan.web.app/).
+
+## Find this repository useful? :heart:
+Support it by joining __[stargazers](https://github.com/ponnex/pokedex/stargazers)__ for this repository. :star: <br>
+Also, __[follow me](https://github.com/ponnex)__ on GitHub for my next creations! 🤩
 
 ## Build Setup
 
@@ -19,51 +33,19 @@ $ npm run generate
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-## Special Directories
+## License
+```xml
+Designed and developed by ponnex 2023 (Emmanuel Francis Ramos)
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-### `assets`
+   http://www.apache.org/licenses/LICENSE-2.0
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
