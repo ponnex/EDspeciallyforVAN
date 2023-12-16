@@ -113,7 +113,7 @@ export default class EntourageComponent extends Vue {}
 
 <style lang="scss" scoped>
 .section {
-	padding: 48px 24px;
+	padding: 24px;
 	height: 100%;
 
 	@media (max-width: 768px) {

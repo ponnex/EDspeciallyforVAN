@@ -1,5 +1,8 @@
 <template>
-	<section id="ourstory" class="section">
+	<section
+		id="ourstory"
+		class="section"
+	>
 		<div class="header">
 			<span class="header-sub">
 				ED RYAN AND VANESSA
@@ -10,7 +13,11 @@
 		</div>
 		<div class="content">
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/1.webp" alt="the day we met" />
+				<img
+					class="icon"
+					src="/images/ourstory/1.webp"
+					alt="the day we met"
+				/>
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">5 JUN 2006</span>
@@ -18,7 +25,11 @@
 				</div>
 			</div>
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/2.webp" alt="stories opening" />
+				<img
+					class="icon"
+					src="/images/ourstory/2.webp"
+					alt="stories opening"
+				/>
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">13 NOV 2017</span>
@@ -26,7 +37,11 @@
 				</div>
 			</div>
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/3.webp" alt="aspired to be one" />
+				<img
+					class="icon"
+					src="/images/ourstory/3.webp"
+					alt="aspired to be one"
+				/>
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">15 DEC 2021</span>
@@ -34,7 +49,11 @@
 				</div>
 			</div>
 			<div class="content-timeline">
-				<img class="icon" src="/images/ourstory/4.webp" alt="the next journey" />
+				<img
+					class="icon"
+					src="/images/ourstory/4.webp"
+					alt="the next journey"
+				/>
 				<div class="vl"></div>
 				<div class="info">
 					<span class="date">08 JAN 2023</span>
@@ -49,12 +68,53 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
 @Component
-export default class OurStoryComponent extends Vue {}
+export default class OurStoryComponent extends Vue {
+	observer = new IntersectionObserver((entries) => {
+		entries.map((entry) => {
+			if (entry.isIntersecting) {
+				const children = entry.target.children;
+				if (children) {
+					Array.from(children).map((child, index) => {
+						setTimeout(() => {
+							child.classList.add('animate');
+						}, 300 * index + 1);
+						return undefined;
+					});
+				}
+			}
+			return undefined;
+		});
+	}, {
+		threshold: 0.5,
+	});
+
+	target!: HTMLElement;
+
+	mounted() {
+		this.target = document.querySelector('#ourstory > .content') as HTMLElement;
+		this.observer.observe(this.target);
+
+		document.addEventListener('scroll', () => {
+			const content = document.querySelector('#ourstory  > .content') as HTMLElement;
+			if (content.getBoundingClientRect().top > window.scrollY) {
+				content.querySelectorAll('.content-timeline').forEach((element) => {
+					if (element.classList.contains('animate')) {
+						element.classList.remove('animate');
+					}
+				});
+			}
+		});
+	}
+
+	destroy() {
+		this.observer.unobserve(this.target);
+	}
+}
 </script>
 
 <style lang="scss" scoped>
 .section {
-	padding: 48px 24px;
+	padding: 24px;
 
 	@media (max-width: 768px) {
 		padding: 24px 16px;
@@ -102,14 +162,24 @@ export default class OurStoryComponent extends Vue {}
 
 	&-timeline {
 		display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		gap: 16px;
+		opacity: 0;
+		transform: translateY(-30px);
+
+		&.animate {
+			transition: 0.5s ease-in;
+			transition-property: opacity, transform;
+			opacity: 1;
+			transform: translateY(0);
+		}
 
 		.icon {
 			max-width: 80%;
 		}
+
 		.vl {
 			border-left: 2px solid black;
 			opacity: 0.4;

@@ -22,10 +22,16 @@
 					<span class="couple-name">Ed Ryan Balabag</span>
 				</div>
 				<div class="content-invitation">
-					<span class="heading">Invitation</span>
-					<span class="sub-header"><span class="sub-header-pre">Hi <strong>Guest,</strong></span> We Are Excited To
-						Invite You On</span>
-					<div class="date">
+					<template v-if="isBeforeWedding">
+						<span class="heading">Invitation</span>
+						<span class="sub-header"><span class="sub-header-pre">Hi <strong>Guest,</strong></span> We Are Excited
+							To
+							Invite You On</span>
+					</template>
+					<div
+						v-show="isBeforeWedding"
+						class="date"
+					>
 						<span class="day">Sunday</span>
 						<span>08TH JANUARY,</span>
 						<span>2023</span>
@@ -40,29 +46,49 @@
 					<span class="couple-name">Vanessa Crystal Estremos</span>
 				</div>
 			</div>
-			<div class="countdown-border">
-				<span class="countdown-border-text">DON'T MISS IT!</span>
+			<template v-if="!isBeforeWedding">
+				<span class="heading">Thank you for celebrating with us!</span>
+			</template>
+			<div
+				v-if="isBeforeWedding"
+				class="countdown-container"
+			>
+				<div class="countdown-border">
+					<span class="countdown-border-text">DON'T MISS IT!</span>
+				</div>
+				<div class="countdown-content">
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.days }}</span>
+						<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's' : ''}` }}</span>
+					</div>
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.hours }}</span>
+						<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's' : ''}` }}</span>
+					</div>
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.minutes }}</span>
+						<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's' : ''}` }}</span>
+					</div>
+					<div class="countdown-time">
+						<span>{{ timeTillWedding.seconds }}</span>
+						<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's' : ''}` }}</span>
+					</div>
+				</div>
+				<div class="countdown-border">
+					<span class="countdown-border-text">UNTIL WE GET MARRIED!</span>
+				</div>
 			</div>
-			<div class="countdown-content">
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.days }}</span>
-					<span class="time-label">{{ `Day${timeTillWedding.days > 1 ? 's' : ''}` }}</span>
+			<div
+				v-else
+				class="wedding-date-container"
+			>
+				<div>SUNDAY</div>
+				<div class="wedding-date-content">
+					<span>JANUARY</span>
+					<span>08</span>
+					<span>2023</span>
 				</div>
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.hours }}</span>
-					<span class="time-label">{{ `Hour${timeTillWedding.hours > 1 ? 's' : ''}` }}</span>
-				</div>
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.minutes }}</span>
-					<span class="time-label">{{ `Minute${timeTillWedding.minutes > 1 ? 's' : ''}` }}</span>
-				</div>
-				<div class="countdown-time">
-					<span>{{ timeTillWedding.seconds }}</span>
-					<span class="time-label">{{ `Second${timeTillWedding.seconds > 1 ? 's' : ''}` }}</span>
-				</div>
-			</div>
-			<div class="countdown-border">
-				<span class="countdown-border-text">UNTIL WE GET MARRIED!</span>
+				<div>12:30 PM</div>
 			</div>
 		</div>
 	</section>
@@ -75,6 +101,7 @@ import { Countdown } from '@/model/time';
 
 @Component
 export default class AboutUsComponent extends Vue {
+	weddingDate = moment('January 08, 2023 12:30 PM');
 	timeTillWedding: Countdown = {
 		days: 0,
 		hours: 0,
@@ -84,7 +111,7 @@ export default class AboutUsComponent extends Vue {
 
 	created() {
 		setInterval(() => {
-			const date: any = duration(moment('January 08, 2023 12:30 PM').diff(moment()));
+			const date: any = duration(this.weddingDate.diff(moment()));
 			const { days, hours, minutes, seconds } = date._data;
 			this.timeTillWedding = {
 				days,
@@ -94,12 +121,16 @@ export default class AboutUsComponent extends Vue {
 			};
 		}, 1000);
 	}
+
+	get isBeforeWedding() {
+		return moment().isBefore(this.weddingDate);
+	}
 }
 </script>
 
 <style lang="scss" scoped>
 .section {
-	padding: 48px 24px;
+	padding: 24px;
 
 	@media (max-width: 768px) {
 		padding: 24px 16px;
@@ -137,10 +168,39 @@ export default class AboutUsComponent extends Vue {
 	}
 }
 
+.heading {
+	font-family: 'Great Vibes';
+	font-size: 40px;
+}
+
+.sub-header {
+	max-width: 190px;
+	text-align: center;
+	color: #5B5B5B;
+
+	&-pre {
+		font-size: 18px;
+	}
+}
+
+.date {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Lora';
+	font-weight: 600;
+	font-size: 22px;
+
+	.day {
+		color: #845F2D;
+	}
+}
+
 .content {
 	padding: 26px 0px;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
+	gap: 16px;
 	max-width: 1440px;
 	margin: 0 auto;
 
@@ -149,6 +209,7 @@ export default class AboutUsComponent extends Vue {
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
+		gap: 48px;
 	}
 
 	&-couple {
@@ -174,36 +235,9 @@ export default class AboutUsComponent extends Vue {
 	&-invitation {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		align-items: center;
 		gap: 18px;
-
-		.heading {
-			font-family: 'Great Vibes';
-			font-size: 40px;
-		}
-
-		.sub-header {
-			max-width: 190px;
-			text-align: center;
-			color: #5B5B5B;
-
-			&-pre {
-				font-size: 18px;
-			}
-		}
-
-		.date {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			font-family: 'Lora';
-			font-weight: 600;
-			font-size: 22px;
-
-			.day {
-				color: #845F2D;
-			}
-		}
 	}
 
 	@media (max-width: 768px) {
@@ -222,11 +256,13 @@ export default class AboutUsComponent extends Vue {
 }
 
 .countdown {
-	&-wrapper {
+	&-container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
+		gap: 8px;
 	}
 
 	&-border {
@@ -284,6 +320,61 @@ export default class AboutUsComponent extends Vue {
 			font-family: 'Lora';
 			font-size: 18px;
 			color: #5B5B5B;
+		}
+	}
+}
+
+.wedding-date {
+	&-container {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		gap: 48px;
+		z-index: 1;
+		padding: 20px 0px;
+		font-size: 36px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 25%;
+			left: 0px;
+			right: 0px;
+			background-color: black;
+			height: 1px;
+			z-index: -1;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 75%;
+			left: 0px;
+			right: 0px;
+			background-color: black;
+			height: 1px;
+			z-index: -1;
+		}
+	}
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 4px;
+		background: white;
+
+		span {
+			font-size: 56px;
+		}
+
+		span:first-of-type,
+		span:last-of-type {
+			font-size: 24px;
+			padding: 0px 50px;
 		}
 	}
 }
