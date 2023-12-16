@@ -85,7 +85,7 @@ export default class OurStoryComponent extends Vue {
 			return undefined;
 		});
 	}, {
-		threshold: 0.5,
+		threshold: 0.1,
 	});
 
 	target!: HTMLElement;
@@ -172,6 +172,7 @@ export default class OurStoryComponent extends Vue {
 		&.animate {
 			transition: 0.5s ease-in;
 			transition-property: opacity, transform;
+			transition-delay: 0.2;
 			opacity: 1;
 			transform: translateY(0);
 		}

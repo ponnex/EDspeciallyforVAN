@@ -171,6 +171,7 @@ export default class AboutUsComponent extends Vue {
 .heading {
 	font-family: 'Great Vibes';
 	font-size: 40px;
+	text-align: center;
 }
 
 .sub-header {
@@ -375,6 +376,12 @@ export default class AboutUsComponent extends Vue {
 		span:last-of-type {
 			font-size: 24px;
 			padding: 0px 50px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		&-container {
+			flex-direction: column;
 		}
 	}
 }
