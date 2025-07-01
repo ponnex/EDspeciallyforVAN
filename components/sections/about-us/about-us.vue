@@ -114,9 +114,7 @@ export default class AboutUsComponent extends Vue {
 				const children = entry.target.children;
 				if (children) {
 					Array.from(children).map((child) => {
-						setTimeout(() => {
-							child.classList.add('animate');
-						}, 300);
+						child.classList.add('animate');
 						return undefined;
 					});
 				}
