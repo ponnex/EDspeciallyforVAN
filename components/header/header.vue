@@ -121,7 +121,7 @@ export default class HeaderComponent extends Vue {
 
 			& /deep/ .nav-item {
 				color: white;
-				text-shadow: 0 0 2px black;
+				text-shadow: 0 0 12px rgba(0,0,0, 0.6);
 			}
 		}
 
