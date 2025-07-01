@@ -8,7 +8,7 @@
 ![screencapture-edspeciallyforvan-netlify-app-2022-12-22-20_04_38](https://github.com/ponnex/EDspeciallyforVAN/assets/10062054/742da429-f3ff-4515-8aca-248bc51e36e8)
 
 ## Website
-You can check website [here](https://edspeciallyforvan.netlify.app/) or [here](https://edspeciallyforvan.web.app/).
+You can check website [here](https://edspeciallyforvan.com/) or [here](https://edspeciallyforvan.web.app/).
 
 ## Find this repository useful? :heart:
 Support it by joining __[stargazers](https://github.com/ponnex/pokedex/stargazers)__ for this repository. :star: <br>
