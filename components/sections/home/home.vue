@@ -29,7 +29,7 @@ export default class HomeComponent extends Vue {
 		centerMode: true,
 		pauseOnHover: false,
 		centerPadding: '0',
-		lazyLoad: 'ondemand',
+		lazyLoad: 'progressive',
 	};
 
 	created() {
