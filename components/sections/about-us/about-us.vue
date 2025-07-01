@@ -13,7 +13,7 @@
 		</div>
 		<div class="content-wrapper">
 			<div class="content">
-				<div class="content-couple">
+				<div class="content-couple ed">
 					<img
 						src="ed.webp"
 						draggable="false"
@@ -37,7 +37,7 @@
 						<span>2023</span>
 					</div>
 				</div>
-				<div class="content-couple">
+				<div class="content-couple van">
 					<img
 						src="van.webp"
 						draggable="false"
@@ -108,6 +108,24 @@ export default class AboutUsComponent extends Vue {
 		minutes: 0,
 		seconds: 0,
 	};
+	observer = new IntersectionObserver((entries) => {
+		entries.map((entry) => {
+			if (entry.isIntersecting) {
+				const children = entry.target.children;
+				if (children) {
+					Array.from(children).map((child, index) => {
+						setTimeout(() => {
+							child.classList.add('animate');
+						}, 300 * index + 1);
+						return undefined;
+					});
+				}
+			}
+			return undefined;
+		});
+	}, {
+		threshold: 0.1,
+	});
 
 	created() {
 		setInterval(() => {
@@ -121,6 +139,25 @@ export default class AboutUsComponent extends Vue {
 			};
 		}, 1000);
 	}
+
+	target!: HTMLElement;
+
+	mounted() {
+		this.target = document.querySelector('#aboutus > .content') as HTMLElement;
+		this.observer.observe(this.target);
+
+		document.addEventListener('scroll', () => {
+			const content = document.querySelector('#aboutus > .content') as HTMLElement;
+			if (content.getBoundingClientRect().top > window.scrollY) {
+				content.querySelectorAll('.content-couple').forEach((element) => {
+					if (element.classList.contains('animate')) {
+						element.classList.remove('animate');
+					}
+				});
+			}
+		});
+	}
+
 
 	get isBeforeWedding() {
 		return moment().isBefore(this.weddingDate);
@@ -220,6 +257,23 @@ export default class AboutUsComponent extends Vue {
 		align-items: center;
 		text-align: center;
 		gap: 4px;
+		opacity: 0;
+
+		&.ed {
+			transform: translateX(-30px);
+		}
+
+		&.van {
+			transform: translateX(30px);
+		}
+
+		&.animate {
+			transition: 0.5s ease-in;
+			transition-property: opacity, transform;
+			transition-delay: 0.2;
+			opacity: 1;
+			transform: translateX(0);
+		}
 
 		img {
 			max-width: 70%;
