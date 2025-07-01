@@ -91,11 +91,11 @@ export default class OurStoryComponent extends Vue {
 	target!: HTMLElement;
 
 	mounted() {
-		this.target = document.querySelector('#ourstory > .content') as HTMLElement;
+		this.target = document.querySelector('#ourstory .content') as HTMLElement;
 		this.observer.observe(this.target);
 
 		document.addEventListener('scroll', () => {
-			const content = document.querySelector('#ourstory  > .content') as HTMLElement;
+			const content = document.querySelector('#ourstory .content') as HTMLElement;
 			if (content.getBoundingClientRect().top > window.scrollY) {
 				content.querySelectorAll('.content-timeline').forEach((element) => {
 					if (element.classList.contains('animate')) {

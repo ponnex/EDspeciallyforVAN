@@ -143,11 +143,11 @@ export default class AboutUsComponent extends Vue {
 	target!: HTMLElement;
 
 	mounted() {
-		this.target = document.querySelector('#aboutus > .content') as HTMLElement;
+		this.target = document.querySelector('#aboutus .content') as HTMLElement;
 		this.observer.observe(this.target);
 
 		document.addEventListener('scroll', () => {
-			const content = document.querySelector('#aboutus > .content') as HTMLElement;
+			const content = document.querySelector('#aboutus .content') as HTMLElement;
 			if (content.getBoundingClientRect().top > window.scrollY) {
 				content.querySelectorAll('.content-couple').forEach((element) => {
 					if (element.classList.contains('animate')) {
