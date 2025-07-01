@@ -111,6 +111,7 @@ export default class AboutUsComponent extends Vue {
 	observer = new IntersectionObserver((entries) => {
 		entries.map((entry) => {
 			if (entry.isIntersecting) {
+				console.log(entry.target);
 				const children = entry.target.children;
 				if (children) {
 					Array.from(children).map((child, index) => {
