@@ -67,6 +67,8 @@ typings/
 
 # nuxt.js build output
 .nuxt
+.output
+.data
 
 # Nuxt generate
 dist
@@ -91,3 +93,4 @@ sw.*
 
 # firebase hosting
 .firebase
+specs/ACTIVE_WORKFLOW.md
