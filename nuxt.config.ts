@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-	// Disable server-side rendering — static SPA deployed to Firebase Hosting
+	// Disable server-side rendering — static SPA deployed via Netlify
 	ssr: false,
 
 	compatibilityDate: '2026-07-09',

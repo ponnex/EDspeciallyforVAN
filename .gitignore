@@ -91,6 +91,4 @@ sw.*
 # Vim swap files
 *.swp
 
-# firebase hosting
-.firebase
 specs/ACTIVE_WORKFLOW.md

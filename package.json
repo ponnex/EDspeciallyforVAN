@@ -12,8 +12,7 @@
     "typecheck": "nuxt typecheck",
     "lint:js": "eslint .",
     "lint": "npm run lint:js",
-    "lintfix": "eslint . --fix",
-    "deploy": "npm run generate && firebase deploy --only hosting"
+    "lintfix": "eslint . --fix"
   },
   "dependencies": {
     "mitt": "^3.0.1",
