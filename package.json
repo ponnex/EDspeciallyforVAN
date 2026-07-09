@@ -21,6 +21,7 @@
     "vue3-carousel": "^0.17.0"
   },
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^6.0.4",
     "@nuxt/eslint": "^1.16.0",
     "@vite-pwa/nuxt": "^1.1.1",
     "autoprefixer": "^10.4.13",
