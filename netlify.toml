@@ -1,6 +1,9 @@
+# On Netlify CI Nitro auto-selects the netlify-static preset, which emits
+# the site to dist/ (locally, nuxt generate writes .output/public and the
+# repo's dist symlink points there).
 [build]
   command = "npm run generate"
-  publish = ".output/public"
+  publish = "dist"
 
 # Declared here so Netlify installs the latest version (>=6 supports Node 22);
 # the UI-installed copy pins an old release that requires Node <20.
