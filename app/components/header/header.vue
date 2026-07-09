@@ -5,7 +5,8 @@
 			<button class="icon-menu" @click.stop="onToggleDrawer()">
 				<img :src="icoMenu" alt="menu" >
 			</button>
-			<nav class="nav" :class="[{ 'show-drawer': isDrawerOpen }]" aria-label="breadcrumb">
+			<div v-if="isDrawerOpen" class="nav-backdrop" @click="onToggleDrawer()"/>
+			<nav class="nav" :class="[{ 'show-drawer': isDrawerOpen }]" aria-label="Main navigation">
 				<button class="icon-close" @click.stop="onToggleDrawer()">
 					<img :src="icoClose" alt="close" >
 				</button>
@@ -37,8 +38,18 @@ watch(() => [route.fullPath, route.hash], () => {
 	isDrawerOpen.value = false;
 });
 
+watch(isDrawerOpen, (open) => {
+	document.body.style.overflow = open ? 'hidden' : '';
+});
+
 function handleScroll() {
 	if (isDrawerOpen.value) {
+		isDrawerOpen.value = false;
+	}
+}
+
+function handleKeydown(event: KeyboardEvent) {
+	if (event.key === 'Escape' && isDrawerOpen.value) {
 		isDrawerOpen.value = false;
 	}
 }
@@ -67,17 +78,11 @@ onMounted(() => {
 	bannerObserver = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry: IntersectionObserverEntry) => {
-				if (entry.intersectionRatio > 0.1 && window.innerWidth > 1024) {
-					isIntersecting.value = true;
-				} else if (entry.intersectionRatio > 0.08 && window.innerWidth < 756) {
-					isIntersecting.value = true;
-				} else {
-					isIntersecting.value = false;
-				}
+				isIntersecting.value = entry.intersectionRatio > 0.08;
 			});
 		},
 		{
-			threshold: [ 0.08, 0.1 ],
+			threshold: [ 0.08 ],
 		},
 	);
 	if (sectionBanner) {
@@ -85,12 +90,15 @@ onMounted(() => {
 	}
 
 	window.addEventListener('scroll', handleNavScroll);
+	window.addEventListener('keydown', handleKeydown);
 });
 
 onBeforeUnmount(() => {
 	window.removeEventListener('scroll', handleScroll);
 	window.removeEventListener('scroll', handleNavScroll);
+	window.removeEventListener('keydown', handleKeydown);
 	bannerObserver?.disconnect();
+	document.body.style.overflow = '';
 });
 </script>
 
@@ -128,7 +136,7 @@ onBeforeUnmount(() => {
 
 			& :deep(.nav-item) {
 				color: white;
-				text-shadow: 0 0 12px rgba(0,0,0, 0.6);
+				text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.5);
 			}
 		}
 
@@ -153,6 +161,20 @@ onBeforeUnmount(() => {
 				}
 			}
 		}
+	}
+}
+
+.nav-backdrop {
+	display: none;
+
+	@media (max-width: 768px) {
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.4);
 	}
 }
 

@@ -7,9 +7,9 @@
 			<span class="header-sub">
 				ADDITIONAL INFORMATION
 			</span>
-			<span class="header-heading">
+			<h2 class="header-heading">
 				REMINDERS
-			</span>
+			</h2>
 		</div>
 		<div class="content">
 			<div class="reminder-wrapper">
@@ -153,6 +153,7 @@
 
 	&-heading {
 		font-size: 48px;
+		font-weight: 400;
 	}
 
 	@media (max-width: 768px) {

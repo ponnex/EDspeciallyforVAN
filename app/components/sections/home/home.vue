@@ -2,17 +2,20 @@
 	<section id="#" class="section">
 		<Carousel
 			class="banner-carousel"
-			:autoplay="2500"
+			:autoplay="5000"
 			:wrap-around="true"
 			:items-to-show="1"
-			:pause-autoplay-on-hover="false"
+			:pause-autoplay-on-hover="true"
 		>
 			<Slide v-for="(image, imageIdx) in bannerImages" :key="imageIdx">
-				<img class="carousel-image" :src="image.pathLong" draggable="false" alt="carousel image" >
+				<img class="carousel-image" :src="image.pathLong" draggable="false" :alt="`Ed Ryan and Vanessa photo ${imageIdx + 1}`" >
 			</Slide>
 		</Carousel>
+		<div class="scrim" aria-hidden="true"/>
 		<div class="banner">
-			<span class="banner-header">SAVE THE DATE</span>
+			<h1 class="banner-header" :aria-label="bannerWords.join(' ')">
+				<span v-for="(word, wordIdx) in bannerWords" :key="wordIdx" class="banner-header-word" aria-hidden="true">{{ word }}</span>
+			</h1>
 			<span class="banner-date">SUNDAY, JANUARY 08 2023</span>
 		</div>
 	</section>
@@ -20,7 +23,14 @@
 
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel';
+import moment from 'moment';
 import type { BannerImage } from '@/model/banner';
+
+const weddingDate = moment('January 08, 2023 12:30 PM');
+const isBeforeWedding = computed(() => moment().isBefore(weddingDate));
+const bannerWords = computed(() =>
+	(isBeforeWedding.value ? 'SAVE THE DATE' : 'WE GOT MARRIED').split(' '),
+);
 
 const bannerModules = import.meta.glob('~/assets/images/banner/*.webp', {
 	eager: true,
@@ -48,6 +58,19 @@ const bannerImages: BannerImage[] = Object.keys(bannerModules)
 	object-fit: cover;
 }
 
+.scrim {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	pointer-events: none;
+	background:
+		linear-gradient(to right, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 60%),
+		linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0) 40%);
+}
+
 .banner {
 	position: absolute;
 	top: 0;
@@ -62,17 +85,21 @@ const bannerImages: BannerImage[] = Object.keys(bannerModules)
 	gap: 70px;
 
 	&-header {
-		display: table-caption;
-		word-spacing: 9999rem;
 		font-size: 112px;
 		line-height: 112px;
 		font-weight: 400;
+		text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+
+		&-word {
+			display: block;
+		}
 	}
 
 	&-date {
 		font-size: 36px;
 		line-height: 36px;
 		font-weight: 400;
+		text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
 	}
 
 	&-carousel {

@@ -4,9 +4,9 @@
 			<span class="header-sub">
 				GROOMSMEN & BRIDESMAIDS
 			</span>
-			<span class="header-heading">
+			<h2 class="header-heading">
 				ENTOURAGE
-			</span>
+			</h2>
 		</div>
 		<div class="content">
 			<div class="entourage">
@@ -55,11 +55,11 @@
 		</div>
 		<div class="header">
 			<span class="header-sub">
+				ED RYAN AND VANESSA
+			</span>
+			<h2 class="header-heading">
 				WITNESSES
-			</span>
-			<span class="header-heading">
-				ENTOURAGE
-			</span>
+			</h2>
 		</div>
 		<div class="content">
 			<div class="entourage-wrapper">
@@ -130,6 +130,7 @@
 
 	&-heading {
 		font-size: 48px;
+		font-weight: 400;
 	}
 
 	@media (max-width: 768px) {
@@ -184,7 +185,9 @@
 		}
 
 		.name {
-			font-size: 28px;
+			font-size: 18px;
+			line-height: 1.6;
+			letter-spacing: 0.05em;
 			text-transform: uppercase;
 			text-align: center;
 		}
@@ -219,7 +222,7 @@
 			}
 
 			.name {
-				font-size: 20px;
+				font-size: 16px;
 			}
 			.role {
 				font-size: 20px;

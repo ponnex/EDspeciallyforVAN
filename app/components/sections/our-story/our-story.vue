@@ -7,9 +7,9 @@
 			<span class="header-sub">
 				ED RYAN AND VANESSA
 			</span>
-			<span class="header-heading">
+			<h2 class="header-heading">
 				OUR STORY
-			</span>
+			</h2>
 		</div>
 		<div class="content">
 			<div class="content-timeline">
@@ -123,6 +123,7 @@ onBeforeUnmount(() => {
 
 	&-heading {
 		font-size: 48px;
+		font-weight: 400;
 	}
 
 	@media (max-width: 768px) {

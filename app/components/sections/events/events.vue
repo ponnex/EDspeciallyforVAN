@@ -4,9 +4,9 @@
 			<span class="header-sub">
 				08 JANUARY 2023
 			</span>
-			<span class="header-heading">
+			<h2 class="header-heading">
 				PROGRAM
-			</span>
+			</h2>
 		</div>
 		<div class="content">
 			<div class="program">
@@ -83,6 +83,7 @@
 
 	&-heading {
 		font-size: 48px;
+		font-weight: 400;
 	}
 
 	@media (max-width: 768px) {
@@ -134,9 +135,9 @@
 			.title {
 				font-weight: 600;
 				font-size: 22px;
-				line-height: 100px;
+				line-height: 1.4;
 				letter-spacing: 0.2em;
-				padding: 0px 50px;
+				padding: 34px 50px;
 			}
 		}
 	}
@@ -157,7 +158,7 @@
 					font-size: 16px;
 					line-height: 24px;
 					word-break: break-word;
-					padding: 0px 30px;
+					padding: 12px 30px;
 				}
 			}
 		}

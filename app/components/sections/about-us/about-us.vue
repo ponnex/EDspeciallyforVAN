@@ -5,11 +5,11 @@
 	>
 		<div class="header">
 			<span class="header-sub">
-				ARE GETTING MARRIED!
+				{{ isBeforeWedding ? 'ARE GETTING MARRIED!' : 'GOT MARRIED!' }}
 			</span>
-			<span class="header-heading">
+			<h2 class="header-heading">
 				GROOM AND BRIDE
-			</span>
+			</h2>
 		</div>
 		<div class="content-wrapper">
 			<div class="content">
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 			<template v-if="!isBeforeWedding">
-				<span class="heading">Thank you for celebrating with us!</span>
+				<h3 class="heading">Thank you for celebrating with us!</h3>
 			</template>
 			<div
 				v-if="isBeforeWedding"
@@ -112,16 +112,18 @@ let countdownInterval: ReturnType<typeof setInterval> | undefined;
 let animationObserver: IntersectionObserver | undefined;
 
 onMounted(() => {
-	countdownInterval = setInterval(() => {
-		const date = moment.duration(weddingDate.diff(moment())) as unknown as { _data: Countdown };
-		const { days, hours, minutes, seconds } = date._data;
-		timeTillWedding.value = {
-			days,
-			hours,
-			minutes,
-			seconds,
-		};
-	}, 1000);
+	if (isBeforeWedding.value) {
+		countdownInterval = setInterval(() => {
+			const date = moment.duration(weddingDate.diff(moment())) as unknown as { _data: Countdown };
+			const { days, hours, minutes, seconds } = date._data;
+			timeTillWedding.value = {
+				days,
+				hours,
+				minutes,
+				seconds,
+			};
+		}, 1000);
+	}
 
 	animationObserver = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
@@ -174,6 +176,7 @@ onBeforeUnmount(() => {
 
 	&-heading {
 		font-size: 48px;
+		font-weight: 400;
 	}
 
 	@media (max-width: 768px) {
@@ -193,6 +196,7 @@ onBeforeUnmount(() => {
 .heading {
 	font-family: 'Great Vibes';
 	font-size: 40px;
+	font-weight: 400;
 	text-align: center;
 }
 
@@ -351,9 +355,11 @@ onBeforeUnmount(() => {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		font-family: 'Great Vibes';
-		font-size: 64px;
-		line-height: 46px;
+		font-family: 'Lora';
+		font-weight: 600;
+		font-variant-numeric: tabular-nums;
+		font-size: 48px;
+		line-height: 1.1;
 		color: #845F2D;
 
 		.time-label {
