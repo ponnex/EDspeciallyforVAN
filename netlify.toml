@@ -1,0 +1,8 @@
+[build]
+  command = "npm run generate"
+  publish = ".output/public"
+
+# Declared here so Netlify installs the latest version (>=6 supports Node 22);
+# the UI-installed copy pins an old release that requires Node <20.
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
