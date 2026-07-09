@@ -1,5 +1,5 @@
 <template>
-	<section id="events" class="section">
+	<section id="events" ref="sectionRef" class="section">
 		<div class="header">
 			<span class="header-sub">
 				08 JANUARY 2023
@@ -57,14 +57,71 @@
 	</section>
 </template>
 
+<script setup lang="ts">
+const sectionRef = ref<HTMLElement | null>(null);
+let parallaxTicking = false;
+
+function handleParallax() {
+	if (parallaxTicking) return;
+	parallaxTicking = true;
+	requestAnimationFrame(() => {
+		const el = sectionRef.value;
+		if (el) {
+			const rect = el.getBoundingClientRect();
+			// 0 while section is below the viewport, 1 once it has scrolled past
+			const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+			const clamped = Math.min(1, Math.max(0, progress));
+			el.style.setProperty('--watermark-shift', `${(clamped - 0.5) * 160}px`);
+		}
+		parallaxTicking = false;
+	});
+}
+
+onMounted(() => {
+	if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		window.addEventListener('scroll', handleParallax, { passive: true });
+		handleParallax();
+	}
+});
+
+onBeforeUnmount(() => {
+	window.removeEventListener('scroll', handleParallax);
+});
+</script>
+
 <style lang="scss" scoped>
 .section {
-	padding: 24px;
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+	padding: 24px 24px 64px;
 	height: 100%;
+	background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EF 18%, #FAF6EF 82%, #FFFFFF 100%);
+
+	&::before {
+		content: 'Program';
+		position: absolute;
+		z-index: -1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, calc(-50% + var(--watermark-shift, 0px)));
+		font-family: 'Great Vibes';
+		font-size: 380px;
+		line-height: 1;
+		color: #845F2D;
+		opacity: 0.05;
+		white-space: nowrap;
+		pointer-events: none;
+		user-select: none;
+	}
 
 	@media (max-width: 768px) {
-		padding: 24px 16px;
+		padding: 24px 16px 48px;
 		height: 100%;
+
+		&::before {
+			font-size: 150px;
+		}
 	}
 }
 
