@@ -1,6 +1,7 @@
 <template>
 	<section
 		id="aboutus"
+		ref="sectionRef"
 		class="section"
 	>
 		<div class="header">
@@ -106,12 +107,36 @@ const timeTillWedding = ref<Countdown>({
 	seconds: 0,
 });
 
+const sectionRef = ref<HTMLElement | null>(null);
+let parallaxTicking = false;
+
+function handleParallax() {
+	if (parallaxTicking) return;
+	parallaxTicking = true;
+	requestAnimationFrame(() => {
+		const el = sectionRef.value;
+		if (el) {
+			const rect = el.getBoundingClientRect();
+			// 0 while section is below the viewport, 1 once it has scrolled past
+			const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+			const clamped = Math.min(1, Math.max(0, progress));
+			el.style.setProperty('--initials-shift', `${(clamped - 0.5) * 120}px`);
+		}
+		parallaxTicking = false;
+	});
+}
+
 const isBeforeWedding = computed(() => moment().isBefore(weddingDate));
 
 let countdownInterval: ReturnType<typeof setInterval> | undefined;
 let animationObserver: IntersectionObserver | undefined;
 
 onMounted(() => {
+	if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		window.addEventListener('scroll', handleParallax, { passive: true });
+		handleParallax();
+	}
+
 	if (isBeforeWedding.value) {
 		countdownInterval = setInterval(() => {
 			const date = moment.duration(weddingDate.diff(moment())) as unknown as { _data: Countdown };
@@ -149,15 +174,64 @@ onMounted(() => {
 onBeforeUnmount(() => {
 	clearInterval(countdownInterval);
 	animationObserver?.disconnect();
+	window.removeEventListener('scroll', handleParallax);
 });
 </script>
 
 <style lang="scss" scoped>
 .section {
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
 	padding: 24px;
+	background:
+		radial-gradient(ellipse 70% 45% at 50% 32%, #FAF6EF 0%, rgba(250, 246, 239, 0) 70%)
+		#FFFFFF;
+
+	&::before,
+	&::after {
+		position: absolute;
+		z-index: -1;
+		font-family: 'Great Vibes';
+		font-size: 300px;
+		line-height: 1;
+		color: #845F2D;
+		opacity: 0.04;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	&::before {
+		content: 'E';
+		left: 10%;
+		top: 30%;
+		transform: translateY(var(--initials-shift, 0px));
+	}
+
+	&::after {
+		content: 'V';
+		right: 10%;
+		top: 30%;
+		transform: translateY(calc(var(--initials-shift, 0px) * -1));
+	}
 
 	@media (max-width: 768px) {
 		padding: 24px 16px;
+
+		&::before,
+		&::after {
+			font-size: 140px;
+		}
+
+		&::before {
+			left: 4%;
+			top: 18%;
+		}
+
+		&::after {
+			right: 4%;
+			top: 62%;
+		}
 	}
 }
 
